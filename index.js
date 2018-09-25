@@ -8,7 +8,9 @@ import {
   ActivityIndicator
 } from 'react-native';
 
+
 import PropTypes from 'prop-types';
+const loaderHandler = require('react-native-busy-indicator/LoaderHandler');
 
 const styles = StyleSheet.create({
   container: {
@@ -60,6 +62,7 @@ class BusyIndicator extends React.Component {
 
   componentDidMount () {
     this.emitter = DeviceEventEmitter.addListener('changeLoadingEffect', this.changeLoadingEffect.bind(this));
+    loaderHandler.showLoader("Loading");
   }
 
   componentWillUnmount() {
